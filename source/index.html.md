@@ -37,6 +37,7 @@ version = sdk.rpc.get_version()
 
 ```java
 import com.github.ontio.OntSdk;
+
 OntSdk sdk = OntSdk.getInstance();
 rpcUrl = 'http://polaris3.ont.io:20336'
 sdk.setRpc(rpcUrl);
@@ -72,6 +73,16 @@ sdk.rpc.set_address(rpc_address)
 count = sdk.rpc.get_node_count()
 ```
 
+```java
+import com.github.ontio.OntSdk;
+
+OntSdk sdk = OntSdk.getInstance();
+rpcUrl = 'http://polaris3.ont.io:20336'
+sdk.setRpc(rpcUrl);
+sdk.rpc.set_address(rpc_address);
+version = wm.getConnect().getNodeCount();
+```
+
 This interface is used to get the current number of connections for the node in current network.
 
 ### Parameters
@@ -97,6 +108,8 @@ sdk = OntologySdk()
 sdk.rpc.set_address(rpc_address)
 price = sdk.rpc.get_gas_price()
 ```
+
+
 
 This interface is used to get the gas price in current network.
 
@@ -124,6 +137,7 @@ sdk.rpc.set_address(rpc_address)
 network_id = sdk.rpc.get_network_id()
 ```
 
+
 This interface is used to get the network id of current network.
 
 ### Parameters
@@ -148,6 +162,18 @@ sdk = OntologySdk()
 sdk.rpc.set_address(rpc_address)
 block_hash = "44425ae42a394ec0c5f3e41d757ffafa790b53f7301147a291ab9b60a956394c"
 block = sdk.rpc.get_block_by_hash(block_hash)
+```
+
+
+```java
+import com.github.ontio.OntSdk;
+
+OntSdk sdk = OntSdk.getInstance();
+rpcUrl = 'http://polaris3.ont.io:20336'
+sdk.setRpc(rpcUrl);
+sdk.rpc.set_address(rpc_address);
+block_hash = "44425ae42a394ec0c5f3e41d757ffafa790b53f7301147a291ab9b60a956394c"
+version = wm.getConnect().getBlock(block_hash);
 ```
 
 This interface is used to get the block information by hexadecimal block hash value in current network.
