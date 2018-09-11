@@ -36,8 +36,6 @@ version = sdk.rpc.get_version()
 ```
 
 ```java
-import com.github.ontio.OntSdk;
-
 OntSdk sdk = OntSdk.getInstance();
 rpcUrl = 'http://polaris3.ont.io:20336'
 sdk.setRpc(rpcUrl);
@@ -74,13 +72,11 @@ count = sdk.rpc.get_node_count()
 ```
 
 ```java
-import com.github.ontio.OntSdk;
-
 OntSdk sdk = OntSdk.getInstance();
 rpcUrl = 'http://polaris3.ont.io:20336'
 sdk.setRpc(rpcUrl);
 sdk.rpc.set_address(rpc_address);
-version = wm.getConnect().getNodeCount();
+count = wm.getConnect().getNodeCount();
 ```
 
 This interface is used to get the current number of connections for the node in current network.
@@ -166,14 +162,12 @@ block = sdk.rpc.get_block_by_hash(block_hash)
 
 
 ```java
-import com.github.ontio.OntSdk;
-
 OntSdk sdk = OntSdk.getInstance();
 rpcUrl = 'http://polaris3.ont.io:20336'
 sdk.setRpc(rpcUrl);
 sdk.rpc.set_address(rpc_address);
 block_hash = "44425ae42a394ec0c5f3e41d757ffafa790b53f7301147a291ab9b60a956394c"
-version = wm.getConnect().getBlock(block_hash);
+block = wm.getConnect().getBlock(block_hash);
 ```
 
 This interface is used to get the block information by hexadecimal block hash value in current network.
@@ -202,6 +196,15 @@ height = 0
 block = sdk.rpc.get_block_by_height(height)
 ```
 
+```java
+OntSdk sdk = OntSdk.getInstance();
+rpcUrl = 'http://polaris3.ont.io:20336'
+sdk.setRpc(rpcUrl);
+sdk.rpc.set_address(rpc_address);
+height = 0
+block = wm.getConnect().getBlock(height);
+```
+
 This interface is used to get the block information by block height in current network.
 
 ### Parameters
@@ -226,6 +229,14 @@ rpc_address = 'http://polaris3.ont.io:20336'
 sdk = OntologySdk()
 sdk.rpc.set_address(rpc_address)
 count = sdk.rpc.get_block_count()
+```
+
+```java
+OntSdk sdk = OntSdk.getInstance();
+rpcUrl = 'http://polaris3.ont.io:20336'
+sdk.setRpc(rpcUrl);
+sdk.rpc.set_address(rpc_address);
+blockheight = wm.getConnect().getBlockHeight();
 ```
 
 This interface is used to get the decimal block number in current network.
@@ -253,6 +264,7 @@ sdk = OntologySdk()
 sdk.rpc.set_address(rpc_address)
 current_block_hash = sdk.rpc.get_current_block_hash()
 ```
+
 
 This interface is used to get the hexadecimal hash value of the highest block in current network.
 
@@ -310,6 +322,15 @@ ont_balance = address_balance['ont']
 ong_balance = address_balance['ong']
 ```
 
+```java
+OntSdk sdk = OntSdk.getInstance();
+rpcUrl = 'http://polaris3.ont.io:20336'
+sdk.setRpc(rpcUrl);
+sdk.rpc.set_address(rpc_address);
+base58_address = "ANH5bHrrt111XwNEnuPZj6u95Dd6u7G4D6"
+balance = wm.getConnect().getBalance(base58_address);
+```
+
 This interface is used to get the account balance of specified base58 encoded address in current network.
 
 ### Parameters
@@ -334,6 +355,17 @@ sdk = OntologySdk()
 sdk.rpc.set_address(rpc_address)
 base58_address = "AKDFapcoUhewN9Kaj6XhHusurfHzUiZqUA"
 allowance = sdk.rpc.get_allowance(base58_address)
+```
+
+```java
+OntSdk sdk = OntSdk.getInstance();
+rpcUrl = 'http://polaris3.ont.io:20336'
+sdk.setRpc(rpcUrl);
+sdk.rpc.set_address(rpc_address);
+String assetName = "ont";
+String from_address = "ANH5bHrrt111XwNEnuPZj6u95Dd6u7G4D6";
+String to_address = "ANH5bHrrt111XwNEnuPZj6u95Dd6u7G4D6";
+allowance = wm.getConnect().getAllowance(assetName,from_address,to_address);
 ```
 
 This interface is used to get the the allowance from transfer-from accout to transfer-to account in current network.
@@ -364,6 +396,16 @@ key = "746f74616c537570706c79"
 value = sdk.rpc.get_storage(contract_address, key)
 ```
 
+```java
+OntSdk sdk = OntSdk.getInstance();
+rpcUrl = 'http://polaris3.ont.io:20336'
+sdk.setRpc(rpcUrl);
+sdk.rpc.set_address(rpc_address);
+String contract_address = "0100000000000000000000000000000000000000";
+String key = "746f74616c537570706c79";
+value = wm.getConnect().getStorage(contract_address,key);
+```
+
 This interface is used to get the corresponding stored value based on hexadecimal contract address and stored key.
 
 ### Parameters
@@ -390,6 +432,15 @@ sdk = OntologySdk()
 sdk.rpc.set_address(rpc_address)
 tx_hash = "65d3b2d3237743f21795e344563190ccbe50e9930520b8525142b075433fdd74"
 event = sdk.rpc.get_smart_contract_event_by_tx_hash(tx_hash)
+```
+
+```java
+OntSdk sdk = OntSdk.getInstance();
+rpcUrl = 'http://polaris3.ont.io:20336'
+sdk.setRpc(rpcUrl);
+sdk.rpc.set_address(rpc_address);
+String tx_hash = "65d3b2d3237743f21795e344563190ccbe50e9930520b8525142b075433fdd74"
+event = wm.getConnect().getSmartCodeEvent(tx_hash);
 ```
 
 This interface is used to get the corresponding smart contract event based on the hexadecimal transaction hash value.
@@ -419,6 +470,15 @@ height = 0
 event = sdk.rpc.get_smart_contract_event_by_height(height)
 ```
 
+```java
+OntSdk sdk = OntSdk.getInstance();
+rpcUrl = 'http://polaris3.ont.io:20336'
+sdk.setRpc(rpcUrl);
+sdk.rpc.set_address(rpc_address);
+height = 0
+event = wm.getConnect().getSmartCodeEvent(height);
+```
+
 This interface is used to get the corresponding smart contract event based on the height of block.
 
 ### Parameters
@@ -444,6 +504,15 @@ sdk = OntologySdk()
 sdk.rpc.set_address(rpc_address)
 tx_hash = "65d3b2d3237743f21795e344563190ccbe50e9930520b8525142b075433fdd74"
 tx = sdk.rpc.get_raw_transaction(tx_hash)
+```
+
+```java
+OntSdk sdk = OntSdk.getInstance();
+rpcUrl = 'http://polaris3.ont.io:20336'
+sdk.setRpc(rpcUrl);
+sdk.rpc.set_address(rpc_address);
+String tx_hash = "65d3b2d3237743f21795e344563190ccbe50e9930520b8525142b075433fdd74"
+event = wm.getConnect().getTransaction(tx_hash);
 ```
 
 This interface is used to get the corresponding transaction information based on the specified hash value.
@@ -473,6 +542,15 @@ contract_address = "0239dcf9b4a46f15c5f23f20d52fac916a0bac0d"
 contract = sdk.rpc.get_smart_contract(contract_address)
 ```
 
+```java
+OntSdk sdk = OntSdk.getInstance();
+rpcUrl = 'http://polaris3.ont.io:20336'
+sdk.setRpc(rpcUrl);
+sdk.rpc.set_address(rpc_address);
+String tx_hash = "65d3b2d3237743f21795e344563190ccbe50e9930520b8525142b075433fdd74"
+event = wm.getConnect().getTransaction(tx_hash);
+```
+
 This interface is used to get the information of smart contract based on the specified hexadecimal hash value.
 
 ### Parameters
@@ -498,6 +576,15 @@ sdk = OntologySdk()
 sdk.rpc.set_address(rpc_address)
 tx_hash = "65d3b2d3237743f21795e344563190ccbe50e9930520b8525142b075433fdd74"
 proof = sdk.rpc.get_merkle_proof(tx_hash)
+```
+
+```java
+OntSdk sdk = OntSdk.getInstance();
+rpcUrl = 'http://polaris3.ont.io:20336'
+sdk.setRpc(rpcUrl);
+sdk.rpc.set_address(rpc_address);
+String tx_hash = "65d3b2d3237743f21795e344563190ccbe50e9930520b8525142b075433fdd74"
+proof = wm.getConnect().getMerkleProof(tx_hash);
 ```
 
 This interface is used to get the corresponding merkle proof based on the specified hexadecimal hash value.
@@ -536,6 +623,25 @@ tx = sdk.sign_transaction(tx, acct)
 tx_hash = sdk.rpc.send_raw_transaction(tx)
 ```
 
+```java
+OntSdk sdk = OntSdk.getInstance();
+rpcUrl = 'http://polaris3.ont.io:20336'
+sdk.setRpc(rpcUrl);
+sdk.rpc.set_address(rpcUrl);
+String pri_key_1 = "75de8489fcb2dcaf2ef3cd607feffde18789de7da129b5e97c81e001793cb7cf"
+Account sendAcct = new Account(Helper.hexToBytes(pri_key_1), SignatureScheme.SHA256WITHECDSA);
+String recvAddr = "AacHGsQVbTtbvSWkqZfvdKePLS6K659dgp";
+long amount = 1;
+gaslimit = 20000;
+gasprice = 500;
+Transaction tx = makeTransfer(sendAcct.getAddressU160().toBase58(), recvAddr, amount, sendAcct.getAddressU160().toBase58(), gaslimit, gasprice);
+sdk.signTx(tx, new Account[][]{{sendAcct}});
+if (!sendAcct.equals(payerAcct)) {
+    sdk.addSign(tx, payerAcct);
+}
+boolean b = sdk.getConnect().sendRawTransaction(tx.toHexString());
+```
+
 This interface is used to send the transaction into the network.
 
 ### Parameters
@@ -570,6 +676,23 @@ tx = sdk.sign_transaction(tx, acct)
 result = sdk.rpc.send_raw_transaction_pre_exec(tx)
 ```
 
+```java
+OntSdk sdk = OntSdk.getInstance();
+rpcUrl = 'http://polaris3.ont.io:20336'
+sdk.setRpc(rpcUrl);
+sdk.rpc.set_address(rpcUrl);
+String pri_key_1 = "75de8489fcb2dcaf2ef3cd607feffde18789de7da129b5e97c81e001793cb7cf"
+Account sendAcct = new Account(Helper.hexToBytes(pri_key_1), SignatureScheme.SHA256WITHECDSA);
+List list = new ArrayList();
+list.add(Address.decodeBase58(address));
+byte[] arg = NativeBuildParams.createCodeParamsScript(list);
+Transaction tx = sdk.vm().buildNativeParams(new Address(Helper.hexToBytes(ontContract)),"balanceOf",arg,null,0,0);
+Object obj = sdk.getConnect().sendRawTransactionPreExec(tx.toHexString());
+String res = ((JSONObject) obj).getString("Result");
+```
+
+
+
 This interface is used to send the transaction that is prepare to execute.
 
 ### Parameters
@@ -600,6 +723,16 @@ b64_salt = 'pwLIUKAf2bAbTseH/WYrfQ=='
 wm.import_account(label, encrypted_pri_key, password, b58_address, b64_salt)
 ```
 
+```java
+OntSdk sdk = OntSdk.getInstance();
+sdk.openWalletFile("test.json");
+String encrypted_pri_key = "Yl1e9ugbVADd8a2SbAQ56UfUvr3e9hD2eNXAM9xNjhnefB+YuNXDFvUrIRaYth+L";
+String password = "1";
+String b58_address = "AazEvfQPcQ2GEFFPLF1ZLwQ7K5jDn81hve";
+String b64_salt = "pwLIUKAf2bAbTseH/WYrfQ==";
+sdk.getWalletMgr().importAccount(encrypted_pri_key,password,b58_address,Base64.getDecoder().decode(b64_salt))
+```
+
 This interface is used to import account by providing account data.
 
 ### Parameters
@@ -627,6 +760,14 @@ label = 'label'
 password = 'password'
 wm.create_account(label, password)
 accounts = wm.get_wallet().get_accounts()
+```
+
+```java
+OntSdk sdk = OntSdk.getInstance();
+sdk.openWalletFile("test.json");
+String label = "label";
+String password = "password";
+sdk.getWalletMgr().createAccount(label, password);
 ```
 
 This interface is used to create account by seeting password and label.
@@ -659,6 +800,14 @@ account = wm.create_account_from_private_key(label, password, private_key)
 account_address = account.get_address()
 ```
 
+```java
+OntSdk sdk = OntSdk.getInstance();
+sdk.openWalletFile("test.json");
+String password = "password";
+String private_key = "c19f16785b8f3543bbaf5e1dbb5d398dfa6c85aaad54fc9d71203ce83e505c07";
+sdk.getWalletMgr().createAccountFromPriKey(password, private_key);
+```
+
 This interface is used to create account by providing an encrypted private key and it's decrypt password.
 
 # Message
@@ -678,6 +827,16 @@ contract_address = '6fe70af535887a820a13cfbaff6b0b505f855e5c'
 oep4 = sdk.neo_vm().oep4()
 oep4.set_contract_address(contract_address)
 oep4.get_name()
+```
+
+```java
+OntSdk sdk = OntSdk.getInstance();
+String remote_rpc_address = "http://polaris3.ont.io:20336"
+sdk.setRpc(remote_rpc_address);
+sdk.openWalletFile("test.json");
+contract_address = '6fe70af535887a820a13cfbaff6b0b505f855e5c'
+sdk.neovm().oep4().setContractAddress(contract_address);
+sdk.neovm().oep4().queryName();
 ```
 
 This interface is used to call the `Name` method in ope4 that return the name of an oep4 token.
@@ -707,6 +866,16 @@ oep4.set_contract_address(contract_address)
 oep4.get_symbol()
 ```
 
+```java
+OntSdk sdk = OntSdk.getInstance();
+String remote_rpc_address = "http://polaris3.ont.io:20336"
+sdk.setRpc(remote_rpc_address);
+sdk.openWalletFile("test.json");
+contract_address = '6fe70af535887a820a13cfbaff6b0b505f855e5c'
+sdk.neovm().oep4().setContractAddress(contract_address);
+sdk.neovm().oep4().querySymbol();
+```
+
 This interface is used to call the `Symbol` method in ope4 that return the symbol of an oep4 token.
 
 #### Parameters
@@ -732,6 +901,16 @@ contract_address = '6fe70af535887a820a13cfbaff6b0b505f855e5c'
 oep4 = sdk.neo_vm().oep4()
 oep4.set_contract_address(contract_address)
 oep4.get_decimal()
+```
+
+```java
+OntSdk sdk = OntSdk.getInstance();
+String remote_rpc_address = "http://polaris3.ont.io:20336"
+sdk.setRpc(remote_rpc_address);
+sdk.openWalletFile("test.json");
+contract_address = '6fe70af535887a820a13cfbaff6b0b505f855e5c'
+sdk.neovm().oep4().setContractAddress(contract_address);
+sdk.neovm().oep4().queryDecimals();
 ```
 
 This interface is used to call the `Decimal` method in ope4 that return the number of decimals used by the oep4 token.
@@ -765,6 +944,20 @@ gas_price = 500
 tx_hash = oep4.init(acct, acct, gas_limit, gas_price)
 ```
 
+```java
+OntSdk sdk = OntSdk.getInstance();
+String remote_rpc_address = "http://polaris3.ont.io:20336"
+sdk.setRpc(remote_rpc_address);
+sdk.openWalletFile("test.json");
+contract_address = '6fe70af535887a820a13cfbaff6b0b505f855e5c'
+sdk.neovm().oep4().setContractAddress(contract_address);
+String private_key = "523c5fcf74823831756f0bcb3634234f10b3beb1c05595058534577752ad2d9f";
+Account acct = Account(Helper.hexToBytes(private_key), SignatureScheme.SHA256withECDSA)
+long gas_limit = 20000000
+long gas_price = 500
+sdk.neovm().oep4().sendInit(acct,acct,gas_limit,gas_price);
+```
+
 #### Parameters
 
 | Parameter | Type  | Description |
@@ -788,6 +981,16 @@ contract_address = '6fe70af535887a820a13cfbaff6b0b505f855e5c'
 oep4 = sdk.neo_vm().oep4()
 oep4.set_contract_address(contract_address)
 oep4.get_total_supply()
+```
+
+```java
+OntSdk sdk = OntSdk.getInstance();
+String remote_rpc_address = "http://polaris3.ont.io:20336"
+sdk.setRpc(remote_rpc_address);
+sdk.openWalletFile("test.json");
+contract_address = '6fe70af535887a820a13cfbaff6b0b505f855e5c'
+sdk.neovm().oep4().setContractAddress(contract_address);
+sdk.neovm().oep4().queryTotalSupply();
 ```
 
 This interface is used to call the TotalSupply method in ope4 that return the total supply of the oep4 token.
@@ -820,6 +1023,16 @@ b58_address = acct.get_address_base58()
 balance = oep4.balance_of(b58_address)
 ```
 
+```java
+OntSdk sdk = OntSdk.getInstance();
+String remote_rpc_address = "http://polaris3.ont.io:20336"
+sdk.setRpc(remote_rpc_address);
+sdk.openWalletFile("test.json");
+String contract_address = "6fe70af535887a820a13cfbaff6b0b505f855e5c";
+sdk.neovm().oep4().setContractAddress(contract_address);
+sdk.neovm().oep4().queryBalanceOf("AacHGsQVbTtbvSWkqZfvdKePLS6K659dgp");
+```
+
 This interface is used to call the BalanceOf method in ope4 that query the ope4 token balance of the given base58 encode address.
 
 #### Parameters
@@ -845,6 +1058,20 @@ contract_address = '6fe70af535887a820a13cfbaff6b0b505f855e5c'
 oep4 = sdk.neo_vm().oep4()
 oep4.set_contract_address(contract_address)
 
+```
+
+```java
+OntSdk sdk = OntSdk.getInstance();
+String remote_rpc_address = "http://polaris3.ont.io:20336"
+sdk.setRpc(remote_rpc_address);
+sdk.openWalletFile("test.json");
+String contract_address = "6fe70af535887a820a13cfbaff6b0b505f855e5c";
+sdk.neovm().oep4().setContractAddress(contract_address);
+public String privatekey1 = "49855b16636e70f100cc5f4f42bc20a6535d7414fb8845e7310f8dd065a97221";
+public String privatekey2 = "1094e90dd7c4fdfd849c14798d725ac351ae0d924b29a279a9ffa77d5737bd96";
+Account acct1 = new Account(Helper.hexToBytes(privatekey1), ontSdk.defaultSignScheme);
+Account acct2 = new Account(Helper.hexToBytes(privatekey2), ontSdk.defaultSignScheme);
+ontSdk.neovm().oep4().sendTransfer(acct1, acct2.getAddressU160().toBase58(), 1000000000L, acct, 20000, 0);
 ```
 
 This interface is used to call the Transfer method in ope4 that transfer an amount of tokens from one account to another account.
@@ -904,6 +1131,22 @@ gas_price = 500
 tx_hash = oep4.transfer_multi(args, signers[0], signers, gas_limit, gas_price)
 ```
 
+```java
+OntSdk sdk = OntSdk.getInstance();
+String remote_rpc_address = "http://polaris3.ont.io:20336"
+sdk.setRpc(remote_rpc_address);
+sdk.openWalletFile("test.json");
+String contract_address = "6fe70af535887a820a13cfbaff6b0b505f855e5c";
+sdk.neovm().oep4().setContractAddress(contract_address);
+public String privatekey1 = "49855b16636e70f100cc5f4f42bc20a6535d7414fb8845e7310f8dd065a97221";
+public String privatekey2 = "1094e90dd7c4fdfd849c14798d725ac351ae0d924b29a279a9ffa77d5737bd96";
+Account acct1 = new Account(Helper.hexToBytes(privatekey1), ontSdk.defaultSignScheme);
+Account acct2 = new Account(Helper.hexToBytes(privatekey2), ontSdk.defaultSignScheme);
+Account[] accounts = new Account[]{acct1,acct2};
+State[] states = new State[]{new State(acct1.getAddressU160(),acct3.getAddressU160(),100),new State(acct2.getAddressU160(),acct4.getAddressU160(),200)};
+String txhash = ontSdk.neovm().oep4().sendTransferMulti(accounts,states,acct1,20000,0);
+```
+
 #### Parameters
 
 | Parameter  | Type    | Description                                                                                                                                                                  |
@@ -942,6 +1185,20 @@ gas_price = 500
 tx_hash = oep4.approve(owner_acct, b58_spender_address, amount, payer_acct, gas_limit, gas_price)
 ```
 
+```java
+OntSdk sdk = OntSdk.getInstance();
+String remote_rpc_address = "http://polaris3.ont.io:20336"
+sdk.setRpc(remote_rpc_address);
+sdk.openWalletFile("test.json");
+String contract_address = "6fe70af535887a820a13cfbaff6b0b505f855e5c";
+sdk.neovm().oep4().setContractAddress(contract_address);
+public String privatekey1 = "49855b16636e70f100cc5f4f42bc20a6535d7414fb8845e7310f8dd065a97221";
+public String privatekey2 = "1094e90dd7c4fdfd849c14798d725ac351ae0d924b29a279a9ffa77d5737bd96";
+Account acct1 = new Account(Helper.hexToBytes(privatekey1), ontSdk.defaultSignScheme);
+Account acct2 = new Account(Helper.hexToBytes(privatekey2), ontSdk.defaultSignScheme);
+ontSdk.neovm().oep4().sendApprove(acct1, acct2.getAddressU160().toBase58(), 1000000000L, acct, 20000, 0);
+```
+
 This interface is used to call the Approve method in ope4 that allows spender to withdraw a certain amount of oep4 token from owner account multiple times.
 
 **Attention**: If this function is called again, it will overwrite the current allowance with new value.
@@ -974,6 +1231,20 @@ contract_address = '6fe70af535887a820a13cfbaff6b0b505f855e5c'
 oep4 = sdk.neo_vm().oep4()
 oep4.set_contract_address(contract_address)
 
+```
+
+```java
+OntSdk sdk = OntSdk.getInstance();
+String remote_rpc_address = "http://polaris3.ont.io:20336"
+sdk.setRpc(remote_rpc_address);
+sdk.openWalletFile("test.json");
+String contract_address = "6fe70af535887a820a13cfbaff6b0b505f855e5c";
+sdk.neovm().oep4().setContractAddress(contract_address);
+public String privatekey1 = "49855b16636e70f100cc5f4f42bc20a6535d7414fb8845e7310f8dd065a97221";
+public String privatekey2 = "1094e90dd7c4fdfd849c14798d725ac351ae0d924b29a279a9ffa77d5737bd96";
+Account acct1 = new Account(Helper.hexToBytes(privatekey1), ontSdk.defaultSignScheme);
+Account acct2 = new Account(Helper.hexToBytes(privatekey2), ontSdk.defaultSignScheme);
+ontSdk.neovm().oep4().queryAllowance(acct1.getAddressU160().toBase58(), acct2.getAddressU160().toBase58());
 ```
 
 #### Parameters
@@ -1010,6 +1281,20 @@ gas_limit = 20000000
 gas_price = 500
 value = 1
 tx_hash = oep4.transfer_from(spender_acct, from_acct, b58_to_address, value, from_acct, gas_limit, gas_price)
+```
+
+```java
+OntSdk sdk = OntSdk.getInstance();
+String remote_rpc_address = "http://polaris3.ont.io:20336"
+sdk.setRpc(remote_rpc_address);
+sdk.openWalletFile("test.json");
+String contract_address = "6fe70af535887a820a13cfbaff6b0b505f855e5c";
+sdk.neovm().oep4().setContractAddress(contract_address);
+public String privatekey1 = "49855b16636e70f100cc5f4f42bc20a6535d7414fb8845e7310f8dd065a97221";
+public String privatekey2 = "1094e90dd7c4fdfd849c14798d725ac351ae0d924b29a279a9ffa77d5737bd96";
+Account acct1 = new Account(Helper.hexToBytes(privatekey1), ontSdk.defaultSignScheme);
+Account acct2 = new Account(Helper.hexToBytes(privatekey2), ontSdk.defaultSignScheme);
+ontSdk.neovm().oep4().sendTransferFrom(acct1, acct2.getAddressU160().toBase58(),acct1.getAddressU160().toBase58(), 1000000000L, acct, 20000, 0);
 ```
 
 #### Parameters
