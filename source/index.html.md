@@ -33,6 +33,17 @@ sdk = OntologySdk()
 sdk.rpc.set_address(rpc_address)
 version = sdk.rpc.get_version()
 ```
+```java
+
+from ontology.ont_sdk import OntologySdk
+
+rpc_address = 'http://polaris3.ont.io:20336'
+sdk = OntologySdk()
+sdk.rpc.set_address(rpc_address)
+version = sdk.rpc.get_version()
+```
+
+
 
 This interface is used to get the version information of the connected node in current network.
 
