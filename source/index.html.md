@@ -1,15 +1,16 @@
 ---
 title: Ontology Smart Contract API Reference
 
-language_tabs: # must be one of 
+language_tabs: # must be one of
   - python
+  - java
 
 toc_footers:
   - <a href='https://github.com/ontio/ontology-python-sdk/tree/master/test'>Check for more examples</a>
   - <a href='https://ont.io'>Powered by Ontology</a>
 
 includes:
- 
+
 
 search: false
 ---
