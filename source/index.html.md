@@ -34,14 +34,14 @@ sdk = OntologySdk()
 sdk.rpc.set_address(rpc_address)
 version = sdk.rpc.get_version()
 ```
+
 ```java
-
-from ontology.ont_sdk import OntologySdk
-
-rpc_address = 'http://polaris3.ont.io:20336'
-sdk = OntologySdk()
-sdk.rpc.set_address(rpc_address)
-version = sdk.rpc.get_version()
+import com.github.ontio.OntSdk;
+OntSdk sdk = OntSdk.getInstance();
+rpcUrl = 'http://polaris3.ont.io:20336'
+sdk.setRpc(rpcUrl);
+sdk.rpc.set_address(rpc_address);
+version = wm.getConnect().getVersion();
 ```
 
 
